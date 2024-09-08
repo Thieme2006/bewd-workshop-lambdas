@@ -7,14 +7,17 @@ public class F18SuperHornetVervoerStrategy implements VervoerStrategy {
     public int berekenReistijd(boolean isReisTijdensSpits) {
         Random rand = new Random();
         int random = rand.nextInt(100);
-        berekenKansOpEenEnemyFighter(rand, random);
+        int figther = berekenKansOpEenEnemyFighter(rand, random);
+        return figther;
     }
 
     public int berekenKansOpEenEnemyFighter(Random rand, int kans) {
         int random = rand.nextInt(kans);
-        if(random < 25) {
-            return 10;
-        } else if (random >= 25 && random < 50) {
+        return berekenTijd(random);
+    }
+
+    public int berekenTijd(int random) {
+        if (random >= 25 && random < 50) {
             return 15;
         } else if (random >= 50 && random < 75) {
             return 20;
