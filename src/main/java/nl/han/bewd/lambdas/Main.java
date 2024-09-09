@@ -17,14 +17,18 @@ public class Main {
 
         System.out.println("Tijdens de spits");
         mijnReis.setSpits(true);
-        mijnReis.simuleerReis(vervoer);                   // Met fiets
+        mijnReis.simuleerReis(vervoer);
         mijnReis.simuleerReis(new AutoVervoerStrategy()); // Met auto
         mijnReis.simuleerReis(new OVVervoerStrategy());   // Met OV
 
         System.out.println("Met <nieuw> vervoer (Stap 2)  ");
         System.out.println("TODO:");
+        mijnReis.simuleerReis(new F18SuperHornetVervoerStrategy());// Met fiets
 
         System.out.println("Met <nieuw> vervoer, lambda edition! (Stap 5)");
         System.out.println("TODO:");
+
+        VervoerStrategy teleport = isReisTijdensSpits -> 0;
+        mijnReis.simuleerReis(teleport);
     }
 }
